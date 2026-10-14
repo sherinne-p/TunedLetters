@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 body {
@@ -37,7 +37,13 @@ body {
     color: #ffffff;
 }
 
+.text-muted {
+    color: #aaaaaa !important;
+}
+
 .table {
+    --bs-table-hover-color: #ffffff;
+    --bs-table-hover-bg: #232323;
     color: #ffffff;
 }
 
@@ -56,7 +62,10 @@ body {
     border-color: #1db954;
 }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active {
         background-color: #18a347;
         border-color: #18a347;
     }

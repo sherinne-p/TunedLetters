@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using TunedLetters.Models;
 
 namespace TunedLetters.Controllers
 {
@@ -11,5 +13,11 @@ namespace TunedLetters.Controllers
         public IActionResult Songs() => View();
 
         public IActionResult Contact() => View();
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error() => View(new ErrorViewModel
+        {
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+        });
     }
 }

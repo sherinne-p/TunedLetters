@@ -5,7 +5,7 @@
 <div class="p-4 mb-4 rounded-3" style="background: linear-gradient(120deg, #1db954, #121212);">
     <div class="row align-items-center">
         <div class="col-md-3 text-center mb-3 mb-md-0">
-            <div style="width: 180px; height: 180px; background:#000; border-radius:8px; display:flex; align-items:center; justify-content:center; margin:auto;">
+            <div style="width: 180px; max-width:100%; aspect-ratio:1; background:#000; border-radius:8px; display:flex; align-items:center; justify-content:center; margin:auto;">
                 <span class="fw-bold fs-4 text-white text-center">Liham sa Laham</span>
             </div>
         </div>
@@ -16,12 +16,14 @@
                 A personal, Spotify-inspired space where every song feels like a letter —
                 featuring the playlist "Liham sa Laham."
             </p>
-            <a asp-action="Playlists" class="btn btn-primary btn-lg me-2">View Playlist</a>
-            <a href="https://open.spotify.com/playlist/5fMKkwbPuWuUdej3PSoCjf?si=Sn29rbYhQYKa05oT0NPv6g"
-               target="_blank"
-               class="btn btn-outline-light btn-lg">
-                Open in Spotify
-            </a>
+            <div class="d-flex flex-wrap gap-2">
+                <a asp-action="Playlists" class="btn btn-primary btn-lg">View Playlist</a>
+                <a href="https://open.spotify.com/playlist/5fMKkwbPuWuUdej3PSoCjf?si=Sn29rbYhQYKa05oT0NPv6g"
+                   target="_blank"
+                   class="btn btn-outline-light btn-lg">
+                    Open in Spotify
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -32,21 +34,21 @@
         <div class="card h-100 p-3">
             <h5>Playlists</h5>
             <p>See the featured playlist and an embedded Spotify player.</p>
-            <a asp-action="Playlists" class="btn btn-primary btn-sm">Go to Playlists</a>
+            <a asp-action="Playlists" class="btn btn-primary btn-sm mt-auto">Go to Playlists</a>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card h-100 p-3">
             <h5>Songs</h5>
-            <p>View a simple list of songs with search and sort UI (front-end only).</p>
-            <a asp-action="Songs" class="btn btn-primary btn-sm">Go to Songs</a>
+            <p>Find songs by title, artist, or album, and sort the playlist.</p>
+            <a asp-action="Songs" class="btn btn-primary btn-sm mt-auto">Go to Songs</a>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card h-100 p-3">
             <h5>Contact</h5>
             <p>Front-end contact form for this project, no backend logic.</p>
-            <a asp-action="Contact" class="btn btn-primary btn-sm">Go to Contact</a>
+            <a asp-action="Contact" class="btn btn-primary btn-sm mt-auto">Go to Contact</a>
         </div>
     </div>
 </div>

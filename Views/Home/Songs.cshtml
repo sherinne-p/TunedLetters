@@ -2,8 +2,8 @@
     ViewData["Title"] = "Songs";
 }
 
-<div class="d-flex align-items-end mb-4">
-    <div style="width: 120px; height: 120px; background:#000; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-right:1.5rem;">
+<div class="d-flex flex-column flex-sm-row align-items-sm-end gap-4 mb-4">
+    <div class="flex-shrink-0" style="width: 120px; height: 120px; background:#000; border-radius:8px; display:flex; align-items:center; justify-content:center;">
         <span class="fw-bold text-center">Liham sa Laham</span>
     </div>
     <div>
@@ -20,17 +20,22 @@
     </div>
 </div>
 
-<div class="mb-3 d-flex justify-content-between align-items-center">
-    <div class="d-flex gap-2">
-        <input class="form-control form-control-sm" style="max-width:260px;" placeholder="Search (UI only)" />
-        <select class="form-select form-select-sm" style="max-width:180px;">
-            <option>Sort by Title</option>
-            <option>Sort by Artist</option>
-            <option>Sort by Duration</option>
+<div class="mb-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <div class="d-flex flex-wrap gap-2">
+        <input id="song-search" type="search" class="form-control form-control-sm" style="max-width:260px;" placeholder="Search songs..."
+               aria-label="Search by title, artist, or album" aria-controls="song-rows" />
+        <select id="song-sort" class="form-select form-select-sm" style="max-width:180px;"
+                aria-label="Sort songs" aria-controls="song-rows">
+            <option value="playlist">Playlist order</option>
+            <option value="title">Title (A–Z)</option>
+            <option value="artist">Artist (A–Z)</option>
+            <option value="duration">Duration (shortest first)</option>
         </select>
     </div>
-    <span class="text-muted small">This page is front-end only for the activity.</span>
+    <span id="song-count" class="text-muted small" role="status" aria-live="polite" aria-atomic="true"></span>
 </div>
+
+<noscript><p class="text-muted">Enable JavaScript to search and sort the songs.</p></noscript>
 
 <div class="table-responsive">
     <table class="table table-hover align-middle mb-0">
@@ -43,7 +48,7 @@
                 <th style="width:80px;">Time</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="song-rows">
             <tr>
                 <td>1</td>
                 <td>Kyusi</td>
@@ -404,3 +409,4 @@
         </tbody>
     </table>
 </div>
+<p id="songs-empty" class="text-muted mt-3 mb-0" hidden>No songs found. Try another search.</p>
